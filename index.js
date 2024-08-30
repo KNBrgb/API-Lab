@@ -26,6 +26,13 @@ async function initialLoad(){
   const res = await fectch('live_oEE7K3MEl6krSfHJFsYnh7VerrXdHKddWALjPc8IkbM3sLpjOfKiX82fmhkyYZKv');
   const breeds = await Response.json();
 
+  breeds.forEach(breed => {
+    const option = document.createElement('option');
+    option.value = breed.id;
+    option.textContent = breed.name;
+    document.getElementById('breedSelect').appendChild(option);
+  }
+  )
 }
 initialLoad();
 
