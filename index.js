@@ -23,10 +23,11 @@ const API_KEY = "live_N3bOOzi34EFv2WLm2QJDuuNcKtD9MMFOUMFmbCJQ3geQRa01uqV2B3Vtut
  */
 
 async function initialLoad(){
-  const res = await fectch('live_oEE7K3MEl6krSfHJFsYnh7VerrXdHKddWALjPc8IkbM3sLpjOfKiX82fmhkyYZKv
+  const res = await fectch('live_oEE7K3MEl6krSfHJFsYnh7VerrXdHKddWALjPc8IkbM3sLpjOfKiX82fmhkyYZKv');
+  const breeds = await Response.json();
 
-')
 }
+initialLoad();
 
 /**
  * 2. Create an event handler for breedSelect that does the following:
@@ -42,6 +43,8 @@ async function initialLoad(){
  * - Each new selection should clear, re-populate, and restart the Carousel.
  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
  */
+
+
 
 /**
  * 3. Fork your own sandbox, creating a new one named "JavaScript Axios Lab."
