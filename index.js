@@ -11,7 +11,8 @@ const progressBar = document.getElementById("progressBar");
 const getFavouritesBtn = document.getElementById("getFavouritesBtn");
 
 // Step 0: Store your API key here for reference and easy access.
-const API_KEY = "live_N3bOOzi34EFv2WLm2QJDuuNcKtD9MMFOUMFmbCJQ3geQRa01uqV2B3VtutmzGcsh";
+const API_KEY =
+  "live_N3bOOzi34EFv2WLm2QJDuuNcKtD9MMFOUMFmbCJQ3geQRa01uqV2B3VtutmzGcsh";
 
 /**
  * 1. Create an async function "initialLoad" that does the following:
@@ -22,17 +23,18 @@ const API_KEY = "live_N3bOOzi34EFv2WLm2QJDuuNcKtD9MMFOUMFmbCJQ3geQRa01uqV2B3Vtut
  * This function should execute immediately.
  */
 
-async function initialLoad(){
-  const res = await fetch('live_oEE7K3MEl6krSfHJFsYnh7VerrXdHKddWALjPc8IkbM3sLpjOfKiX82fmhkyYZKv');
+async function initialLoad() {
+  const res = await fetch(
+    "live_oEE7K3MEl6krSfHJFsYnh7VerrXdHKddWALjPc8IkbM3sLpjOfKiX82fmhkyYZKv"
+  );
   const breeds = await Response.json();
 
-  breeds.forEach(breed => {
-    const option = document.createElement('option');
+  breeds.forEach((breed) => {
+    const option = document.createElement("option");
     option.value = breed.id;
     option.textContent = breed.name;
-    document.getElementById('breedSelect').appendChild(option);
-  }
-  )
+    document.getElementById("breedSelect").appendChild(option);
+  });
 }
 initialLoad();
 
@@ -51,28 +53,29 @@ initialLoad();
  * - Add a call to this function to the end of your initialLoad function above to create the initial carousel.
  */
 
-document.getElementById('breedSelect').addEventListener('change', async function(){
-  const breedID = this.value;
-  const response = await fetch('https://api.thecatapi.com/v1/breeds');
-  const images = await response.json();
-  const carousel = document.getElementById('carousel');
+document
+  .getElementById("breedSelect")
+  .addEventListener("change", async function () {
+    const breedID = this.value;
+    const response = await fetch("https://api.thecatapi.com/v1/breeds");
+    const images = await response.json();
+    const carousel = document.getElementById("carousel");
 
-  carousel.innerHTML = '';
+    carousel.innerHTML = "";
 
-  const infoDump = document.getElementById('infoDump');
-  infoDump.innerHTML = '' 
-  
-  images.forEach(image => {
-    const imgElement = document.createElement('img');
-    imgElement.src = image.url;
-    carousel.appendChild(imgElement);
+    const infoDump = document.getElementById("infoDump");
+    infoDump.innerHTML = "";
 
-    const breedInfo = document.createElement('div');
-    breedInfo.textContent = image.breeds[0].description;
-    infoDump.appendChild(breedInfo);
-  }
-  );
-})
+    images.forEach((image) => {
+      const imgElement = document.createElement("img");
+      imgElement.src = image.url;
+      carousel.appendChild(imgElement);
+
+      const breedInfo = document.createElement("div");
+      breedInfo.textContent = image.breeds[0].description;
+      infoDump.appendChild(breedInfo);
+    });
+  });
 
 /**
  * 3. Fork your own sandbox, creating a new one named "JavaScript Axios Lab."
